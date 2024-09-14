@@ -58,10 +58,14 @@ func do_walk(delta):
 		
 	move_and_slide()
 	
-	if not is_on_floor() and ray_1.is_colliding() and not ray_2.is_colliding():
+	if not is_on_floor() and ray_1.is_colliding() and not ray_2.is_colliding() and ray_3.is_colliding():
 		state = STATES.HANGING
 		var normal = ray_1.get_collision_normal()
 		body_model.global_basis = Basis.looking_at(-normal)
+		var body_pos = global_position
+		var colpos = ray_3.get_collision_point()
+		var fix = colpos.y - body_pos.y - 0.75 # 0.75 is height difference between ray_3 and hand position
+		global_position.y += fix
 
 func do_hanging(_delta):
 	if Input.is_action_just_pressed("ui_accept"):

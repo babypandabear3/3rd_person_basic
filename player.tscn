@@ -5,6 +5,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_of20w"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_bm5yi"]
+size = Vector3(1, 1, 0.1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bedb4"]
 
@@ -15,7 +16,7 @@ script = ExtResource("1_unqoa")
 mesh = SubResource("CapsuleMesh_of20w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body_model"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.500222, -0.115093)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.75, -0.6)
 mesh = SubResource("PrismMesh_bm5yi")
 
 [node name="ray1" type="RayCast3D" parent="body_model"]
@@ -27,6 +28,8 @@ target_position = Vector3(0, 0, -1)
 
 [node name="ray3" type="RayCast3D" parent="body_model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body_model"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_bedb4")
