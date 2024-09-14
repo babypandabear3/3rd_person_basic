@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6end3ookr0vl"]
+
+[ext_resource type="Script" path="res://camera_system.gd" id="1_vnmh1"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_to8ec"]
+
+[node name="Camera_system" type="Node3D"]
+script = ExtResource("1_vnmh1")
+
+[node name="Axis_Y" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Axis_Y"]
+shape = SubResource("SeparationRayShape3D_to8ec")
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="Axis_Y/SpringArm3D"]
